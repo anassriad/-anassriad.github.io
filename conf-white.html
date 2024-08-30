@@ -79,6 +79,51 @@
             text-decoration: underline;
         }
 
+        /* New styles for the pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #62f386;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 80%;
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup-close {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .thumbs-up {
+            font-size: 48px;
+            animation: thumbsUp 1s infinite;
+        }
+        @keyframes thumbsUp {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
         @media (min-width: 768px) {
             .checkout-content {
                 flex-direction: row;
@@ -116,7 +161,7 @@
                 </div>
             </div>
             <div class="customer-form">
-                <form>
+                <form id="orderForm">
                     <div class="form-group">
                         <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -135,5 +180,30 @@
         </div>
         <a href="index.html" class="back-link">← Back to All Products</a>
     </div>
+
+    <!-- New pop-up element -->
+    <div id="congratsPopup" class="popup">
+        <div class="popup-content">
+            <h2>Congratulations!</h2>
+            <p class="thumbs-up">👍</p>
+            <p>You've made an excellent choice!</p>
+            <p>Your Confucius White Tote Bag is the perfect blend of style and wisdom.</p>
+            <p>Get ready to carry your belongings with elegance and philosophy!</p>
+            <button class="popup-close">Can't Wait to Use It!</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the order data to your server
+            // For this example, we'll just show the popup
+            document.getElementById('congratsPopup').style.display = 'block';
+        });
+
+        document.querySelector('.popup-close').addEventListener('click', function() {
+            document.getElementById('congratsPopup').style.display = 'none';
+        });
+    </script>
 </body>
 </html>

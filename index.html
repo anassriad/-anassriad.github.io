@@ -90,6 +90,42 @@
             background-color: #4cd672;
             transform: scale(1.1);
         }
+        #contact {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        #contact h2 {
+            color: #62f386;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form p {
+            margin: 10px 0;
+        }
+        form label {
+            color: white;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #62f386;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 5px;
+        }
+        form textarea {
+            height: 100px;
+        }
+        form button {
+            align-self: flex-start;
+            margin-top: 10px;
+        }
         @media (max-width: 768px) {
             .item {
                 flex: 0 1 100%;
@@ -117,34 +153,68 @@
     <section class="gallery">
         <div class="item">
             <img src="steveblack.jpg" alt="Steve Black Tote Bag">
-            <p><a href="steve-black.html"><button>Buy</button></a></p>
+            <p><a href="#contact"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="albertblack.jpg" alt="Albert Black Tote Bag">
-            <p><a href="albert-black.html"><button>Buy</button></a></p>
+            <p><a href="#contact"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="roosveltblack.jpg" alt="Roosevelt Black Tote Bag">
-            <p><a href="roosvelt-black.html"><button>Buy</button></a></p>
+            <p><a href="#contact"><button>Buy</button></a></p>
             <p>119DH</p> 
         </div>
         <div class="item">
             <img src="peterwhite.jpg" alt="Peter White Tote Bag">
-            <p><a href="peter-white.html"><button>Buy</button></a></p>
+            <p><a href="#contact"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="winstonwhite.jpg" alt="Winston White Tote Bag">
-            <p><a href="winston-white.html"><button>Buy</button></a></p>
+            <p><a href="#contact"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="confwhite.jpg" alt="Conf White Tote Bag">
-            <p><a href="conf-white.html"><button>Buy</button></a></p>
+            <p><a href="#contact"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form name="contact" method="POST" data-netlify="true">
+            <p>
+                <label>Name: <input type="text" name="name" required /></label>
+            </p>
+            <p>
+                <label>Email: <input type="email" name="email" required /></label>
+            </p>
+            <p>
+                <label>Phone: <input type="tel" name="phone" /></label>
+            </p>
+            <p>
+                <label>Product: 
+                    <select name="product" required>
+                        <option value="">Select a product</option>
+                        <option value="Steve Black">Steve Black Tote Bag</option>
+                        <option value="Albert Black">Albert Black Tote Bag</option>
+                        <option value="Roosevelt Black">Roosevelt Black Tote Bag</option>
+                        <option value="Peter White">Peter White Tote Bag</option>
+                        <option value="Winston White">Winston White Tote Bag</option>
+                        <option value="Conf White">Conf White Tote Bag</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label>Message: <textarea name="message"></textarea></label>
+            </p>
+            <p>
+                <button type="submit">Send</button>
+            </p>
+        </form>
     </section>
 </body>
 </html>

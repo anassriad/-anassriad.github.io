@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Roosevelt Black Tote Bag</title>
+    <title>Checkout - Peter White Tote Bag</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,8 +78,6 @@
         .back-link:hover {
             text-decoration: underline;
         }
-
-        /* New styles for the pop-up */
         .popup {
             display: none;
             position: fixed;
@@ -123,7 +121,6 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
         }
-
         @media (min-width: 768px) {
             .checkout-content {
                 flex-direction: row;
@@ -148,12 +145,12 @@
 <body>
     <div class="container">
         <h1>Checkout</h1>
-        <h2>Roosevelt Black Tote Bag</h2>
+        <h2>Peter White Tote Bag</h2>
         <div class="checkout-content">
             <div class="product-summary">
-                <img src="roosveltblack.jpg" alt="Roosevelt Black Tote Bag">
+                <img src="peterwhite.jpg" alt="Peter White Tote Bag">
                 <div class="product-info">
-                    <p>Elevate your style with our Roosevelt Black Tote Bag. Perfect for those who appreciate minimalist design with a touch of sophistication.</p>
+                    <p>Elevate your style with our Peter White Tote Bag. Perfect for those who appreciate minimalist design with a touch of sophistication.</p>
                     <p class="price">119DH</p>
                     <p>Material: 100% Cotton</p>
                     <p>Dimensions: 40cm x 35cm x 10cm</p>
@@ -161,7 +158,8 @@
                 </div>
             </div>
             <div class="customer-form">
-                <form id="orderForm">
+                <form id="orderForm" name="peter-white-order" method="POST" data-netlify="true" action="/peter-white.html?success=true">
+                    <input type="hidden" name="product" value="Peter White Tote Bag">
                     <div class="form-group">
                         <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -181,24 +179,22 @@
         <a href="index.html" class="back-link">← Back to All Products</a>
     </div>
 
-    <!-- New pop-up element -->
     <div id="congratsPopup" class="popup">
         <div class="popup-content">
             <h2>Congratulations!</h2>
             <p class="thumbs-up">👍</p>
             <p>You've made an excellent choice!</p>
-            <p>Your Roosevelt Black Tote Bag is the perfect blend of style and functionality.</p>
+            <p>Your Peter White Tote Bag is the perfect blend of style and functionality.</p>
             <p>Get ready to turn heads wherever you go!</p>
             <button class="popup-close">Can't Wait to Use It!</button>
         </div>
     </div>
 
     <script>
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the order data to your server
-            // For this example, we'll just show the popup
-            document.getElementById('congratsPopup').style.display = 'block';
+        window.addEventListener('load', function() {
+            if (window.location.search.includes('success=true')) {
+                document.getElementById('congratsPopup').style.display = 'block';
+            }
         });
 
         document.querySelector('.popup-close').addEventListener('click', function() {

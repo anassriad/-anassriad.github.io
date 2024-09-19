@@ -64,25 +64,35 @@
             cursor: pointer;
             font-size: 18px;
         }
-        #thankYouMessage {
+        #congratulationsMessage {
             display: none;
             background-color: rgba(98, 243, 134, 0.2);
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
             text-align: center;
+            animation: fadeIn 0.5s;
         }
-        .marketing {
-            display: none;
-            margin-top: 20px;
-            text-align: center;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .marketing img {
+        #congratulationsMessage h2 {
+            color: #62f386;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #congratulationsMessage p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .thumbnail {
             width: 100px;
             height: 100px;
             object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin: 20px auto;
+            display: block;
         }
     </style>
 </head>
@@ -108,38 +118,30 @@
             <button type="submit">Place Order</button>
         </form>
 
-        <div id="thankYouMessage">
-            <h2>Thank you for your order!</h2>
-            <p>We'll contact you soon to confirm your purchase.</p>
-        </div>
-
-        <div class="marketing">
-            <img src="steveblack.jpg" alt="Steve Black Tote Bag">
-            <p>Check out our Steve Black Tote Bag!</p>
-            <a href="steve-black.html"><button>View Now</button></a>
+        <div id="congratulationsMessage">
+            <h2>Congratulations on Your Confident Choice!</h2>
+            <p>Your Conf White Tote Bag symbolizes clarity, confidence, and a fresh perspective. Let it inspire you to approach each day with renewed energy and purpose!</p>
+            <img src="thumbnail.jpg" alt="Thank You" class="thumbnail">
         </div>
     </div>
 
     <script>
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-            })
-            .then(response => response.ok ? response.json() : Promise.reject(response))
-            .then(data => {
-                form.style.display = 'none';
-                document.getElementById('thankYouMessage').style.display = 'block';
-                document.querySelector('.marketing').style.display = 'block';
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("There was a problem submitting your order. Please try again.");
-            });
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            form.style.display = 'none';
+            document.getElementById('congratulationsMessage').style.display = 'block';
         });
+    });
     </script>
 </body>
 </html>

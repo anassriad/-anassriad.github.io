@@ -90,55 +90,6 @@
             background-color: #4cd672;
             transform: scale(1.1);
         }
-        #order {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        #order h2 {
-            color: #62f386;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form p {
-            margin: 10px 0;
-        }
-        form label {
-            color: white;
-            display: flex;
-            flex-direction: column;
-        }
-        form input, form select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #62f386;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 5px;
-        }
-        form button {
-            align-self: flex-start;
-            margin-top: 10px;
-        }
-        @media (max-width: 768px) {
-            .item {
-                flex: 0 1 100%;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            .banner-content {
-                width: 80%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -152,65 +103,34 @@
     <section class="gallery">
         <div class="item">
             <img src="steveblack.jpg" alt="Steve Black Tote Bag">
-            <p><a href="#order"><button>Buy</button></a></p>
+            <p><a href="steve-black.html"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="albertblack.jpg" alt="Albert Black Tote Bag">
-            <p><a href="#order"><button>Buy</button></a></p>
+            <p><a href="albert-black.html"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="roosveltblack.jpg" alt="Roosevelt Black Tote Bag">
-            <p><a href="#order"><button>Buy</button></a></p>
+            <p><a href="roosevelt-black.html"><button>Buy</button></a></p>
             <p>119DH</p> 
         </div>
         <div class="item">
             <img src="peterwhite.jpg" alt="Peter White Tote Bag">
-            <p><a href="#order"><button>Buy</button></a></p>
+            <p><a href="peter-white.html"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="winstonwhite.jpg" alt="Winston White Tote Bag">
-            <p><a href="#order"><button>Buy</button></a></p>
+            <p><a href="winston-white.html"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
         <div class="item">
             <img src="confwhite.jpg" alt="Conf White Tote Bag">
-            <p><a href="#order"><button>Buy</button></a></p>
+            <p><a href="conf-white.html"><button>Buy</button></a></p>
             <p>119DH</p>
         </div>
-    </section>
-
-    <section id="order">
-        <h2>Order Now</h2>
-        <form name="order" method="POST" data-netlify="true">
-            <p>
-                <label>Name: <input type="text" name="name" required placeholder="Full Name" /></label>
-            </p>
-            <p>
-                <label>Address: <input type="text" name="address" required placeholder="Delivery Address" /></label>
-            </p>
-            <p>
-                <label>Phone: <input type="tel" name="phone" required placeholder="Phone Number" /></label>
-            </p>
-            <p>
-                <label>Product: 
-                    <select name="product" required>
-                        <option value="">Select a product</option>
-                        <option value="Steve Black">Steve Black Tote Bag</option>
-                        <option value="Albert Black">Albert Black Tote Bag</option>
-                        <option value="Roosevelt Black">Roosevelt Black Tote Bag</option>
-                        <option value="Peter White">Peter White Tote Bag</option>
-                        <option value="Winston White">Winston White Tote Bag</option>
-                        <option value="Conf White">Conf White Tote Bag</option>
-                    </select>
-                </label>
-            </p>
-            <p>
-                <button type="submit">Order</button>
-            </p>
-        </form>
     </section>
 </body>
 </html>

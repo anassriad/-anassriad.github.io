@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Albert Black Tote Bag</title>
+    <title>Albert Black Tote Bag - Elegancy starts from mindset</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,187 +18,127 @@
             margin: 0 auto;
             padding: 20px;
         }
-        h1, h2 {
-            text-align: center;
-        }
-        .checkout-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .product-summary img {
+        .product-image {
             width: 100%;
             max-width: 400px;
-            border-radius: 10px;
+            height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #62f386;
         }
         .price {
-            color: #62f386;
-            font-weight: bold;
+            text-align: center;
             font-size: 24px;
-        }
-        .form-group {
             margin-bottom: 20px;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
         }
         label {
             display: block;
             margin-bottom: 5px;
         }
-        input[type="text"],
-        input[type="tel"] {
+        input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #444;
-            background-color: #333;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #62f386;
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
             border-radius: 5px;
-            box-sizing: border-box;
         }
         button {
+            display: block;
             width: 100%;
-            padding: 15px;
-            font-size: 16px;
+            padding: 10px;
             background-color: #62f386;
             color: black;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 18px;
         }
-        button:hover {
-            background-color: #4cd672;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #62f386;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .popup {
+        #thankYouMessage {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-        }
-        .popup-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #62f386;
-            color: black;
+            background-color: rgba(98, 243, 134, 0.2);
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
-            max-width: 80%;
-        }
-        .popup h2 {
-            margin-top: 0;
-        }
-        .popup-close {
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            text-align: center;
         }
-        .thumbs-up {
-            font-size: 48px;
-            animation: thumbsUp 1s infinite;
+        .marketing {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
         }
-        @keyframes thumbsUp {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        @media (min-width: 768px) {
-            .checkout-content {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            .product-summary, .customer-form {
-                flex: 1;
-            }
-            .product-summary {
-                margin-right: 40px;
-            }
-            button {
-                width: auto;
-                padding: 10px 20px;
-            }
-            button:hover {
-                transform: scale(1.05);
-            }
+        .marketing img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Checkout</h1>
-        <h2>Albert Black Tote Bag</h2>
-        <div class="checkout-content">
-            <div class="product-summary">
-                <img src="albertblack.jpg" alt="Albert Black Tote Bag">
-                <div class="product-info">
-                    <p>Elevate your style with our Albert Black Tote Bag. Perfect for those who appreciate minimalist design with a touch of sophistication.</p>
-                    <p class="price">119DH</p>
-                    <p>Material: 100% Cotton</p>
-                    <p>Dimensions: 40cm x 35cm x 10cm</p>
-                    <p>Care: Machine washable at 30°C</p>
-                </div>
-            </div>
-            <div class="customer-form">
-                <form id="orderForm" name="albert-black-order" method="POST" data-netlify="true" action="/albert-black.html?success=true">
-                    <input type="hidden" name="product" value="Albert Black Tote Bag">
-                    <div class="form-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address:</label>
-                        <input type="text" id="address" name="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <button type="submit">Confirm Order</button>
-                </form>
-            </div>
-        </div>
-        <a href="index.html" class="back-link">← Back to All Products</a>
-    </div>
+        <img src="albertblack.jpg" alt="Albert Black Tote Bag" class="product-image">
+        <h1>Albert Black Tote Bag</h1>
+        <p class="price">119DH</p>
+        
+        <form name="order" method="POST" data-netlify="true" id="orderForm">
+            <input type="hidden" name="form-name" value="order">
+            <input type="hidden" name="product" value="Albert Black Tote Bag">
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <button type="submit">Place Order</button>
+        </form>
 
-    <div id="congratsPopup" class="popup">
-        <div class="popup-content">
-            <h2>Congratulations!</h2>
-            <p class="thumbs-up">👍</p>
-            <p>You've made an excellent choice!</p>
-            <p>Your Albert Black Tote Bag is the perfect blend of style and functionality.</p>
-            <p>Get ready to turn heads wherever you go!</p>
-            <button class="popup-close">Can't Wait to Use It!</button>
+        <div id="thankYouMessage">
+            <h2>Thank you for your order!</h2>
+            <p>We'll contact you soon to confirm your purchase.</p>
+        </div>
+
+        <div class="marketing">
+            <img src="roosveltblack.jpg" alt="Roosevelt Black Tote Bag">
+            <p>Check out our Roosevelt Black Tote Bag!</p>
+            <a href="roosevelt-black.html"><button>View Now</button></a>
         </div>
     </div>
 
     <script>
-        window.addEventListener('load', function() {
-            if (window.location.search.includes('success=true')) {
-                document.getElementById('congratsPopup').style.display = 'block';
-            }
-        });
-
-        document.querySelector('.popup-close').addEventListener('click', function() {
-            document.getElementById('congratsPopup').style.display = 'none';
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+            })
+            .then(response => response.ok ? response.json() : Promise.reject(response))
+            .then(data => {
+                form.style.display = 'none';
+                document.getElementById('thankYouMessage').style.display = 'block';
+                document.querySelector('.marketing').style.display = 'block';
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("There was a problem submitting your order. Please try again.");
+            });
         });
     </script>
 </body>

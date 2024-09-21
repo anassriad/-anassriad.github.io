@@ -64,36 +64,6 @@
             cursor: pointer;
             font-size: 18px;
         }
-        #congratulationsMessage {
-            display: none;
-            background-color: rgba(98, 243, 134, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        #congratulationsMessage h2 {
-            color: #62f386;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        #congratulationsMessage p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .thumbnail {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin: 20px auto;
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -102,7 +72,7 @@
         <h1>Conf White Tote Bag</h1>
         <p class="price">119DH</p>
         
-        <form name="order" method="POST" data-netlify="true" id="orderForm">
+        <form name="order" method="POST" data-netlify="true" action="/thank-you">
             <input type="hidden" name="form-name" value="order">
             <input type="hidden" name="product" value="Conf White Tote Bag">
             
@@ -117,31 +87,6 @@
             
             <button type="submit">Place Order</button>
         </form>
-
-        <div id="congratulationsMessage">
-            <h2>Congratulations on Your Confident Choice!</h2>
-            <p>Your Conf White Tote Bag symbolizes clarity, confidence, and a fresh perspective. Let it inspire you to approach each day with renewed energy and purpose!</p>
-            <img src="thumbnail.jpg" alt="Thank You" class="thumbnail">
-        </div>
     </div>
-
-    <script>
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const form = e.target;
-        const formData = new FormData(form);
-
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(() => {
-            form.style.display = 'none';
-            document.getElementById('congratulationsMessage').style.display = 'block';
-        });
-    });
-    </script>
 </body>
 </html>

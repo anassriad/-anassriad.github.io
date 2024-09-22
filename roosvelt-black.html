@@ -6,8 +6,182 @@
     <title>Roosvelt Black Tote Bag - Philosophy | WisdomWear</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* The CSS remains the same as in the previous pages */
-        /* ... (insert all the CSS from the previous pages here) ... */
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333333;
+            --accent-color: #4a7c59;
+            --secondary-color: #c9ada7;
+            --tertiary-color: #9a8c98;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .header {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .site-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--bg-color);
+        }
+        .nav-bar {
+            background-color: var(--secondary-color);
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .nav-item {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .product-image.hidden {
+            display: none;
+        }
+        .color-toggle {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+        }
+        .product-details {
+            text-align: center;
+        }
+        .price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .description {
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: var(--tertiary-color);
+        }
+        .quote {
+            font-style: italic;
+            color: var(--tertiary-color);
+            margin-top: 2rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .product-container {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+            .product-image-container {
+                margin-right: 2rem;
+                margin-bottom: 0;
+            }
+            .product-details {
+                text-align: left;
+                flex: 1;
+            }
+        }
     </style>
 </head>
 <body>

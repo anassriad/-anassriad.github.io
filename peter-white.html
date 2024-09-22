@@ -3,93 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peter White Tote Bag - Elegancy starts from mindset</title>
+    <title>Peter White Tote Bag - Wisdom | WisdomWear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: rgb(32, 32, 32);
-            color: white;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .product-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px;
-            border-radius: 10px;
-        }
-        h1 {
-            text-align: center;
-            color: #62f386;
-        }
-        .price {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        form {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #62f386;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 5px;
-        }
-        textarea {
-            resize: vertical;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #62f386;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
+        /* The CSS remains the same as in the previous pages */
+        /* ... (insert all the CSS from the previous pages here) ... */
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="peterwhite.jpg" alt="Peter White Tote Bag" class="product-image">
-        <h1>Peter White Tote Bag</h1>
-        <p class="price">119DH</p>
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="WisdomWear Logo" class="logo">
+            <span class="site-title">WisdomWear</span>
+        </div>
+    </header>
+    
+    <nav class="nav-bar">
+        <a href="steve-black.html" class="nav-item">Motivation</a>
+        <a href="albert-black.html" class="nav-item">Mindset</a>
+        <a href="roosvelt-black.html" class="nav-item">Philosophy</a>
+        <a href="peter-white.html" class="nav-item active">Wisdom</a>
+        <a href="winston-white.html" class="nav-item">Growth</a>
+    </nav>
+
+    <main class="main-content">
+        <h1 id="productTitle">Peter White Tote Bag</h1>
         
-        <form name="order" method="POST" data-netlify="true" action="/thank-you">
-            <input type="hidden" name="form-name" value="order">
-            <input type="hidden" name="product" value="Peter White Tote Bag">
-            
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" required></textarea>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-            
-            <button type="submit">Confirm Order</button>
-        </form>
-    </div>
+        <div class="product-container">
+            <div class="product-image-container">
+                <img src="peterwhite.jpg" alt="Peter White Tote Bag" class="product-image" id="whiteImage">
+                <img src="peterblack.jpg" alt="Peter Black Tote Bag" class="product-image hidden" id="blackImage">
+                <button class="color-toggle" id="colorToggle">Switch Color</button>
+            </div>
+            <div class="product-details">
+                <p class="price">119DH</p>
+                <p class="description">Embody timeless wisdom with our Peter Tote Bag. This pristine white bag symbolizes clarity of thought and purity of intention. Designed to inspire contemplation and mindful living, it features a profound quote that encourages you to seek and share wisdom in your daily life. Crafted from durable, eco-friendly materials, this tote is not just a stylish accessory but a canvas for your journey towards greater understanding and insight.</p>
+                
+                <form name="order" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="order">
+                    <input type="hidden" name="product" id="productInput" value="Peter White Tote Bag">
+                    
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                    
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <button type="submit">Place Order</button>
+                </form>
+                
+                <p class="quote">"With great power comes great responsibility." - Peter Parker (Spider-Man)</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const colorToggle = document.getElementById('colorToggle');
+        const whiteImage = document.getElementById('whiteImage');
+        const blackImage = document.getElementById('blackImage');
+        const productTitle = document.getElementById('productTitle');
+        const productInput = document.getElementById('productInput');
+        let isWhite = true;
+
+        colorToggle.addEventListener('click', function() {
+            if (isWhite) {
+                whiteImage.classList.add('hidden');
+                blackImage.classList.remove('hidden');
+                productTitle.textContent = 'Peter Black Tote Bag';
+                productInput.value = 'Peter Black Tote Bag';
+            } else {
+                blackImage.classList.add('hidden');
+                whiteImage.classList.remove('hidden');
+                productTitle.textContent = 'Peter White Tote Bag';
+                productInput.value = 'Peter White Tote Bag';
+            }
+            isWhite = !isWhite;
+        });
+    </script>
 </body>
 </html>

@@ -86,12 +86,33 @@
             flex-direction: column;
             align-items: center;
         }
-        .product-image {
+        .product-image-container {
+            position: relative;
             width: 100%;
             max-width: 400px;
+            margin-bottom: 2rem;
+        }
+        .product-image {
+            width: 100%;
             height: auto;
             border-radius: 10px;
-            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+        .product-image.hidden {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .color-toggle {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
         }
         .product-details {
             text-align: center;
@@ -106,20 +127,42 @@
             margin-bottom: 2rem;
             max-width: 600px;
         }
-        .cta-button {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 600;
+        form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
             background-color: var(--accent-color);
             color: var(--bg-color);
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            font-size: 18px;
+            transition: background-color 0.3s;
         }
-        .cta-button:hover {
+        button[type="submit"]:hover {
             background-color: var(--tertiary-color);
-            transform: scale(1.05);
         }
         .quote {
             font-style: italic;
@@ -128,25 +171,12 @@
             text-align: center;
         }
         @media (min-width: 768px) {
-            .header {
-                padding: 1.5rem;
-            }
-            .logo {
-                width: 80px;
-                height: 80px;
-            }
-            .site-title {
-                font-size: 1.8rem;
-            }
-            h1 {
-                font-size: 3rem;
-            }
             .product-container {
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: flex-start;
             }
-            .product-image {
+            .product-image-container {
                 margin-right: 2rem;
                 margin-bottom: 0;
             }
@@ -174,17 +204,61 @@
     </nav>
 
     <main class="main-content">
-        <h1>Steve Black Tote Bag</h1>
+        <h1 id="productTitle">Steve Black Tote Bag</h1>
         
         <div class="product-container">
-            <img src="steveblack.jpg" alt="Steve Black Tote Bag" class="product-image">
+            <div class="product-image-container">
+                <img src="steveblack.jpg" alt="Steve Black Tote Bag" class="product-image" id="blackImage">
+                <img src="stevewhite.jpg" alt="Steve White Tote Bag" class="product-image hidden" id="whiteImage">
+                <button class="color-toggle" id="colorToggle">Switch Color</button>
+            </div>
             <div class="product-details">
                 <p class="price">119DH</p>
-                <p class="description">Embrace motivation with our Steve Black Tote Bag. This elegant and durable bag is perfect for carrying your essentials while reminding you to stay inspired and driven. The sleek black design features a motivational quote that will energize you throughout your day. Made from high-quality, eco-friendly materials, this tote is not just a fashion statement but a daily dose of encouragement.</p>
-                <button class="cta-button">Add to Cart</button>
+                <p class="description">Embrace motivation with our Steve Tote Bag. This elegant and durable bag is perfect for carrying your essentials while reminding you to stay inspired and driven. The design features a motivational quote that will energize you throughout your day. Made from high-quality, eco-friendly materials, this tote is not just a fashion statement but a daily dose of encouragement.</p>
+                
+                <form name="order" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="order">
+                    <input type="hidden" name="product" id="productInput" value="Steve Black Tote Bag">
+                    
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                    
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <button type="submit">Place Order</button>
+                </form>
+                
                 <p class="quote">"Your time is limited, don't waste it living someone else's life." - Steve Jobs</p>
             </div>
         </div>
     </main>
+
+    <script>
+        const colorToggle = document.getElementById('colorToggle');
+        const blackImage = document.getElementById('blackImage');
+        const whiteImage = document.getElementById('whiteImage');
+        const productTitle = document.getElementById('productTitle');
+        const productInput = document.getElementById('productInput');
+        let isBlack = true;
+
+        colorToggle.addEventListener('click', function() {
+            if (isBlack) {
+                blackImage.classList.add('hidden');
+                whiteImage.classList.remove('hidden');
+                productTitle.textContent = 'Steve White Tote Bag';
+                productInput.value = 'Steve White Tote Bag';
+            } else {
+                whiteImage.classList.add('hidden');
+                blackImage.classList.remove('hidden');
+                productTitle.textContent = 'Steve Black Tote Bag';
+                productInput.value = 'Steve Black Tote Bag';
+            }
+            isBlack = !isBlack;
+        });
+    </script>
 </body>
 </html>

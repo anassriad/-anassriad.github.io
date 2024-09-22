@@ -106,14 +106,19 @@
             padding-bottom: 133.33%; /* 3:4 Aspect Ratio */
             overflow: hidden;
         }
-        .item-image {
+        .item-image-slider {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 200%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .item-image {
+            width: 50%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 0.3s ease;
         }
         .item p {
             margin: 0.5rem 0;
@@ -178,50 +183,62 @@
         <section class="gallery">
             <div class="item" data-product="steve">
                 <div class="item-image-container">
-                    <img src="steveblack.jpg" alt="Steve Tote Bag" class="item-image">
-                    <img src="stevewhite.jpg" alt="Steve Tote Bag" class="item-image" style="opacity: 0;">
+                    <div class="item-image-slider">
+                        <img src="steveblack.jpg" alt="Steve Black Tote Bag" class="item-image">
+                        <img src="stevewhite.jpg" alt="Steve White Tote Bag" class="item-image">
+                    </div>
                 </div>
-                <p><a href="steve-black.html"><button>Explore Motivation</button></a></p>
+                <p><a href="steve-black.html"><button>Order Now</button></a></p>
                 <p>119DH</p>
             </div>
             <div class="item" data-product="albert">
                 <div class="item-image-container">
-                    <img src="albertblack.jpg" alt="Albert Tote Bag" class="item-image">
-                    <img src="albertwhite.jpg" alt="Albert Tote Bag" class="item-image" style="opacity: 0;">
+                    <div class="item-image-slider">
+                        <img src="albertblack.jpg" alt="Albert Black Tote Bag" class="item-image">
+                        <img src="albertwhite.jpg" alt="Albert White Tote Bag" class="item-image">
+                    </div>
                 </div>
-                <p><a href="albert-black.html"><button>Discover Mindset</button></a></p>
+                <p><a href="albert-black.html"><button>Order Now</button></a></p>
                 <p>119DH</p>
             </div>
             <div class="item" data-product="roosvelt">
                 <div class="item-image-container">
-                    <img src="roosveltblack.jpg" alt="Roosvelt Tote Bag" class="item-image">
-                    <img src="roosveltwhite.jpg" alt="Roosvelt Tote Bag" class="item-image" style="opacity: 0;">
+                    <div class="item-image-slider">
+                        <img src="roosveltblack.jpg" alt="Roosvelt Black Tote Bag" class="item-image">
+                        <img src="roosveltwhite.jpg" alt="Roosvelt White Tote Bag" class="item-image">
+                    </div>
                 </div>
-                <p><a href="roosvelt-black.html"><button>Embrace Philosophy</button></a></p>
+                <p><a href="roosvelt-black.html"><button>Order Now</button></a></p>
                 <p>119DH</p>
             </div>
             <div class="item" data-product="peter">
                 <div class="item-image-container">
-                    <img src="peterwhite.jpg" alt="Peter Tote Bag" class="item-image">
-                    <img src="peterblack.jpg" alt="Peter Tote Bag" class="item-image" style="opacity: 0;">
+                    <div class="item-image-slider">
+                        <img src="peterblack.jpg" alt="Peter Black Tote Bag" class="item-image">
+                        <img src="peterwhite.jpg" alt="Peter White Tote Bag" class="item-image">
+                    </div>
                 </div>
-                <p><a href="peter-white.html"><button>Embody Wisdom</button></a></p>
+                <p><a href="peter-white.html"><button>Order Now</button></a></p>
                 <p>119DH</p>
             </div>
             <div class="item" data-product="winston">
                 <div class="item-image-container">
-                    <img src="winstonwhite.jpg" alt="Winston Tote Bag" class="item-image">
-                    <img src="winstonblack.jpg" alt="Winston Tote Bag" class="item-image" style="opacity: 0;">
+                    <div class="item-image-slider">
+                        <img src="winstonblack.jpg" alt="Winston Black Tote Bag" class="item-image">
+                        <img src="winstonwhite.jpg" alt="Winston White Tote Bag" class="item-image">
+                    </div>
                 </div>
-                <p><a href="winston-white.html"><button>Cultivate Growth</button></a></p>
+                <p><a href="winston-white.html"><button>Order Now</button></a></p>
                 <p>119DH</p>
             </div>
             <div class="item" data-product="conf">
                 <div class="item-image-container">
-                    <img src="confwhite.jpg" alt="Conf Tote Bag" class="item-image">
-                    <img src="confblack.jpg" alt="Conf Tote Bag" class="item-image" style="opacity: 0;">
+                    <div class="item-image-slider">
+                        <img src="confblack.jpg" alt="Conf Black Tote Bag" class="item-image">
+                        <img src="confwhite.jpg" alt="Conf White Tote Bag" class="item-image">
+                    </div>
                 </div>
-                <p><a href="conf-white.html"><button>Inspire Elegance</button></a></p>
+                <p><a href="conf-white.html"><button>Order Now</button></a></p>
                 <p>119DH</p>
             </div>
         </section>
@@ -229,11 +246,18 @@
 
     <script>
         document.querySelectorAll('.item').forEach(item => {
-            item.addEventListener('click', function() {
-                const images = this.querySelectorAll('.item-image');
-                images.forEach(img => {
-                    img.style.opacity = img.style.opacity === '0' ? '1' : '0';
-                });
+            const slider = item.querySelector('.item-image-slider');
+            let isFirstImage = true;
+
+            item.addEventListener('click', function(e) {
+                if (!e.target.closest('button')) {
+                    if (isFirstImage) {
+                        slider.style.transform = 'translateX(-50%)';
+                    } else {
+                        slider.style.transform = 'translateX(0)';
+                    }
+                    isFirstImage = !isFirstImage;
+                }
             });
         });
     </script>
